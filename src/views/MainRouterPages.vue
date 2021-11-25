@@ -1,15 +1,18 @@
 <template>
   <div class="main-router-pages">
     <Login />
+    <!-- <register /> -->
   </div>
 </template>
 
 <script>
 import Login from "./Login.vue"
+import Register from './Register.vue'
 export default {
   name: "MainRouterPages",
   components: {
-    Login
+    Login,
+    Register
   }
 
 }
