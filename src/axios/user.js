@@ -28,3 +28,15 @@ export const login = params => instance.get(`/login/cellphone`, {params})
   */
  export const verifyCaptcha = params => instance.get(`/captcha/verify`, {params})
 
+/**
+ * @methods 获取用户详情
+ * @params 说明 : 登录后调用此接口 , 传入用户 id, 可以获取用户详情
+ * @params 必选参数 : uid : 用户 id
+ */
+ export const getUserDetail = uid => instance.get(`/user/detail?uid=${uid}`, {})
+
+/**
+ * @methods 退出登录
+ * @params 说明 : 调用此接口 , 可退出登录
+ */
+ export const logout = () => instance.get(`/logout?timeStamp=${new Date().valueOf()}`)
