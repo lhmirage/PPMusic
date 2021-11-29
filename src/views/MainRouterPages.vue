@@ -1,20 +1,28 @@
 <template>
   <div class="main-router-pages">
-    <Login />
+    <header-main v-if="!($route.path.indexOf('/login') !== -1)"></header-main>
+    <router-view class="router-page"></router-view>
+    <footer-main></footer-main>
+    <go-top></go-top>
     <!-- <register /> -->
   </div>
 </template>
 
 <script>
+import GoTop from '../components/common/GoTop.vue'
+import FooterMain from './FooterMain.vue'
+import HeaderMain from './HeaderMain.vue'
 import Login from "./Login.vue"
 import Register from './Register.vue'
 export default {
   name: "MainRouterPages",
   components: {
     Login,
-    Register
+    Registe,
+    HeaderMainr,
+    FooterMain,
+    GoTop
   }
-
 }
 </script>
 
