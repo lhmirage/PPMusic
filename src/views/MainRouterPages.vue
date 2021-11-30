@@ -13,13 +13,11 @@ import GoTop from '../components/common/GoTop.vue'
 import FooterMain from './FooterMain.vue'
 import HeaderMain from './HeaderMain.vue'
 import Login from "./Login.vue"
-import Register from './Register.vue'
 export default {
   name: "MainRouterPages",
   components: {
     Login,
-    Registe,
-    HeaderMainr,
+    HeaderMain,
     FooterMain,
     GoTop
   }

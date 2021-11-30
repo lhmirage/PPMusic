@@ -5,8 +5,15 @@ import store from "./store"
 
 import utils from "./utils/utils"
 import api from "./axios/index.js"
+import "./filter/filters"
+import VueLazyload from 'vue-lazyload'
 
+Vue.use(VueLazyload, {
+  error: require("./assets/images/replace.png"),
+  loading: require("./assets/images/replace.png")
+})
 import "./element-ui"
+Vue.config.productionTip = false
 
 import "./assets/css/reset.css"
 

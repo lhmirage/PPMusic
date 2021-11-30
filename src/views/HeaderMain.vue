@@ -242,16 +242,15 @@ export default {
   position: fixed;
   z-index: 100;
   .box {
-    margin: 0 5%;
+    margin: 0 4%;
     height: 100%;
     display: flex;
     .logo {
-      width: 146px;
+      width: 200px;
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 10px;
     }
     ul {
       flex: 1;
