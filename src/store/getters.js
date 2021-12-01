@@ -18,3 +18,6 @@ export const playList = state => state.playList
 
 // 播放记录
 export const playRecord = state => state.playRecord
+
+// 历史搜索
+export const historySearch = state => state.historySearch
