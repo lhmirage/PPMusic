@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     playListDetail (id) {
-      // this.$router.push()
+      this.$router.push(`/play-list-detail/${id}`)
     }
   }
 }

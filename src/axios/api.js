@@ -11,7 +11,7 @@ export const getBanner = () => instance.get("/banner",{})
  * @methods 推荐歌单
  * @params limit: 取出数量  默认 30
  */
-export const getRecommendSongeSheet = limit => instance.get(`/personalized?limit=${limit}`)
+export const getRecommendSongSheet = limit => instance.get(`/personalized?limit=${limit}`)
 
 /**
  * @methods 推荐新歌曲

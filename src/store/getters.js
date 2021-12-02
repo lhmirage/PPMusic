@@ -19,5 +19,8 @@ export const playList = state => state.playList
 // 播放记录
 export const playRecord = state => state.playRecord
 
+// 播放模式
+export const playMode = state => state.playMode
+
 // 历史搜索
 export const historySearch = state => state.historySearch

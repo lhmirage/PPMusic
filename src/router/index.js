@@ -12,6 +12,7 @@ const Singer = () => import("../views/Singer")
 const Video = () => import("../views/Video")
 const MV = () => import("../views/MV")
 const Search = () => import("../views/Search")
+const PlayListDetail = () => import("../views/PlayListDetail")
 
 const Profile = () => import("../views/Profile")
 
@@ -51,6 +52,10 @@ const routes = [
   {
     path: "/mv",
     component: MV
+  },
+  {
+    path: "/play-list-detail/:id",
+    component: PlayListDetail
   },
   {
     path: "/profile",

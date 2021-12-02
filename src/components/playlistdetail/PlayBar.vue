@@ -2,56 +2,40 @@
   <div class="play-bar">
     <div class="centent">
       <div class="avatar">
-        <img v-lazy="currentSong.picUrl"
-             alt="">
+        <img v-lazy="currentSong.picUrl" alt="">
       </div>
       <div class="info">
         <h2>{{currentSong.song}}</h2>
         <p>{{currentSong.singer}}</p>
       </div>
-      <div class="contorller">
-        <i class="iconfont iconnext"
-           @click="playPrevSong"></i>
-        <i class="iconfont iconbofang4"
-           v-show="isPlay"
-           @click="startPlay"></i>
-        <i class="iconfont iconbofang3"
-           v-show="!isPlay"
-           @click="pausePlay"></i>
-        <i class="iconfont iconprev"
-           @click="playNextSong"></i>
+      <div class="controller">
+        <i class="iconfont iconnext" @click="playPrevSong"></i>
+        <i class="iconfont iconbofang4" v-show="isPlay" @click="startPlay"></i>
+        <i class="iconfont iconbofang3" v-show="!isPlay" @click="pausePlay"></i>
+        <i class="iconfont iconprev" @click="playNextSong"></i>
       </div>
-      <div class="play-progress"
-           @mousedown="isSetProgress = true"
-           @mouseup="isSetProgress = false">
+      <div class="play-progress" @mousedown="isSetProgress = true" @mouseup="isSetProgress = false">
         <span class="current-time">{{currentTime | formatCurrentTime}}</span>
-        <el-slider v-model="progress"
-                   :format-tooltip="formatToolTip"
-                   @change="setProgress">
+        <el-slider
+          v-model="progress"
+          :format-tooltip="formatToolTip"
+          @change="setProgress">
         </el-slider>
         <span class="total-time">{{currentSong.transitionTime | formatPlayTime}}</span>
       </div>
       <div class="volnum-control">
-        <i :class="isMutedIcon"
-           @click="mutedClick"></i>
-        <el-slider v-model="volumeSlider"
-                   @change="setVolume(volumeSlider)">
+        <i :class="isMutedIcon" @click="mutedClick"></i>
+        <el-slider
+          v-model="volumeSlider"
+          @change="setVolume(volumeSlider)">
         </el-slider>
       </div>
       <div class="icon-button">
-        <i class="iconfont iconxunhuan"
-           :class="{'active-icon': playMode === 'orderPlay'}"
-           @click="orderPlay"></i>
-        <i class="iconfont icondanquxunhuan"
-           :class="{'active-icon': playMode === 'oneLoop'}"
-           @click="oneLoop"></i>
-        <i class="iconfont iconplay-random"
-           :class="{'active-icon': playMode === 'randomPlay'}"
-           @click="randomPlay"></i>
-        <i class="iconfont icongeci"
-           @click="openLyric"></i>
-        <i class="iconfont iconplaylsit"
-           @click="openPlayRecord"></i>
+        <i class="iconfont iconxunhuan" :class="{'active-icon': playMode === 'orderPlay'}" @click="orderPlay"></i>
+        <i class="iconfont icondanquxunhuan" :class="{'active-icon': playMode === 'oneLoop'}" @click="oneLoop"></i>
+        <i class="iconfont iconplay-random" :class="{'active-icon': playMode === 'randomPlay'}" @click="randomPlay"></i>
+        <i class="iconfont icongeci" @click="openLyric"></i>
+        <i class="iconfont iconplaylsit" @click="openPlayRecord"></i>
       </div>
 
       <audio :src="playUrl"
@@ -63,16 +47,13 @@
       </audio>
 
       <transition name="fade">
-        <div class="lyric"
-             v-show="isOpenLyric">
+        <div class="lyric" v-show="isOpenLyric">
           <h2>歌词</h2>
           <scroll ref="lyricList">
-            <div v-if="nolyric">暂无歌词</div>
+            <div v-if="nolyric">暂无歌词, 请欣赏歌曲</div>
             <div v-if="!nolyric && currentLyric">
               <div class="lyric-wrapper">
-                <p ref="lyricLine"
-                   v-for="(item, index) in currentLyric.lines"
-                   :key="index"
+                <p ref="lyricLine" v-for="(item, index) in currentLyric.lines" :key="index"
                    :class="currentLineNum === index ? 'active-lyric-text' : ''">
                   {{item.txt}}
                 </p>
@@ -82,33 +63,26 @@
         </div>
       </transition>
       <transition name="fade">
-        <div class="play-list"
-             v-show="isOpenPlayRecord">
+        <div class="play-list" v-show="isOpenPlayRecord">
           <h2>
             播放记录
-            <i class="iconfont iconlajitong"
-               @click="deteleAll"></i>
+            <i class="iconfont iconlajitong" @click="deleteAll"></i>
           </h2>
           <div class="play-list-table">
             <table>
               <thead>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in playRecord"
-                    :key="item.id">
+                <tr v-for="(item, index) in playRecord" :key="item.id">
                   <td class="num">
-                    <play-button :item="item"
-                                 :index="index"></play-button>
+                    <play-button :item="item" :index="index"></play-button>
                   </td>
                   <td class="song">
                     {{item.song}}
-                    <i class="iconfont iconerror"
-                       v-if="item.error"
-                       title="播放源错误!"></i>
+                    <i class="iconfont iconerror" v-if="item.error" title="播放源错误!"></i>
                   </td>
                   <td class="delete">
-                    <i class="iconfont icondelete"
-                       @click="removeItem(index)"></i>
+                    <i class="iconfont icondelete" @click="removeItem(index)"></i>
                   </td>
                 </tr>
               </tbody>
@@ -563,6 +537,7 @@ export default {
         margin: 0 20px;
         .el-slider__runway {
           height: 3px;
+          cursor: pointer;
           .el-slider__bar {
             height: 3px;
             background-color: #fa2800;

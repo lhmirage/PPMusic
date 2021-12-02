@@ -4,7 +4,7 @@
     <router-view class="router-page"></router-view>
     <footer-main></footer-main>
     <go-top></go-top>
-    <!-- <play-bar v-if="Object.keys(currentSong).length !== 0"></play-bar> -->
+    <play-bar v-if="Object.keys(currentSong).length !== 0"></play-bar>
   </div>
 </template>
 

@@ -7,9 +7,9 @@
           v-for="(item, index) in this.songs"
           :key="item.id">
         <td class="order-number">
-          <!-- <play-button :playList="songs"
+          <play-button :playList="songs"
                        :item="item"
-                       :index="index"></play-button> -->
+                       :index="index"></play-button>
         </td>
         <td class="image">
           <img v-lazy="item.picUrl"

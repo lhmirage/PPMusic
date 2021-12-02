@@ -40,7 +40,7 @@ export default {
   methods: {
     async getRecommendSongSheet () {
       try {
-        let res = await this.$api.getRecommendSongeSheet(this.limit)
+        let res = await this.$api.getRecommendSongSheet(this.limit)
         if (res.status === 200 && res.statusText === "OK") {
           this.songSheetList = res.data.result
           this.isLoading = false
