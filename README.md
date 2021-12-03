@@ -1,4 +1,4 @@
-# pipeimusic
+# PPmusic
 
 ## Project setup
 ```
