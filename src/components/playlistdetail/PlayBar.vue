@@ -508,6 +508,7 @@ export default {
         margin: 0 30px;
         .el-slider__runway {
           height: 3px;
+          cursor: pointer;
           .el-slider__bar {
             height: 3px;
             background-color: #fa2800;

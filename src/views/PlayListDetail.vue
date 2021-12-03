@@ -169,7 +169,7 @@ export default {
   }
 }
 </script>
-<style scoped lang="less">
+<style lang="less">
 .play-list-detail {
   min-width: 1230px;
   padding-top: 80px;
