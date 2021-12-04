@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     singerDetail (id) {
-      // this.$router.push({ path: `/singer-detail/${id}` })
+      this.$router.push({path:`/singer-detail/${id}`})
     }
   }
 }

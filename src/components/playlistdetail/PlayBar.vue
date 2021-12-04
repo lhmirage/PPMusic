@@ -217,7 +217,7 @@ export default {
           this.audio.play()
         }, 20);
       } else if (this.playMode === 'oneLoop') {
-        this.setcurrentSong(this.currentSong)
+        this.setCurrentSong(this.currentSong)
         setTimeout(() => {
           this.audio.play()
         }, 20)
@@ -228,7 +228,7 @@ export default {
           this.currentLyric.play()
         }
       } else if (this.playMode === 'randomPlay') {
-        this.setcurrentSong(this.playList[parseInt(Math.random() * this.playList.length)])
+        this.setCurrentSong(this.playList[parseInt(Math.random() * this.playList.length)])
         setTimeout(() => {
           this.audio.play()
         }, 20)

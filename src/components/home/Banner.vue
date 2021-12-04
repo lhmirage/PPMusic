@@ -23,9 +23,11 @@ export default {
         loop: true,　　// 是否自动轮播
         pagination: '.swiper-pagination', //轮播图中下标点显示
         paginationClickable: true,　　 //轮播图中下标点显示,
-        slidesPerView: 3, // 显示几张图片
+        slidesPerView: 'auto', // 显示几张图片
         spaceBetween: 30, // 图片左右间距
         slidesPerGroup: 3, // 一次拖动几个
+        observer: true, 
+        observerParents: true,
         loopFillGroupWithBlank: true,
         centeredSlides: true,
         grabCursor: true
@@ -59,7 +61,7 @@ export default {
 .banner {
   .swiper-container {
     width: 100%;
-    padding: 20px 0 30px;
+    padding: 20px 0px 30px;
     .swiper-wrapper {
       .swiper-slide {
         img {

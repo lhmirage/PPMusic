@@ -14,6 +14,13 @@ const MV = () => import("../views/MV")
 const Search = () => import("../views/Search")
 const PlayListDetail = () => import("../views/PlayListDetail")
 
+const SingerDetail = () => import("../views/SingerDetail")
+const SingerMusic = () => import("../views/singer-detail/SingerMusic")
+const SingerAlbum = () => import("../views/singer-detail/SingerAlbum")
+const SingerMv = () => import("../views/singer-detail/SingerMv")
+const SingerDesc = () => import("../views/singer-detail/SingerDesc")
+const SimilarSinger = () => import("../views/singer-detail/SimilarSinger")
+
 const Profile = () => import("../views/Profile")
 
 const routes = [
@@ -56,6 +63,21 @@ const routes = [
   {
     path: "/play-list-detail/:id",
     component: PlayListDetail
+  },
+  {
+    path: "/singer-detail/:id",
+    redirect: "/singer-detail/:id/singer-music"
+  },
+  {
+    path: "/singer-detail/:id",
+    component: SingerDetail,
+    children: [
+      { path: 'singer-music', component: SingerMusic },
+      { path: 'singer-album', component: SingerAlbum },
+      { path: 'singer-mv', component: SingerMv },
+      { path: 'singer-desc', component: SingerDesc },
+      { path: 'similar-singer', component: SimilarSinger },
+    ]
   },
   {
     path: "/profile",
