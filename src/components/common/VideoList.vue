@@ -41,12 +41,12 @@ export default {
     play (id) {
       if (this.$route.path.indexOf('/video') !== -1) {
         // 进入video详情页
-        // this.$router.push(`/video-detail/${id}`)
+        this.$router.push(`/video-detail/${id}`)
       } else {
         // 进入mv详情页
-        // this.$router.push({
-        //   path: `/mv-detail/${id}`
-        // })
+        this.$router.push({
+          path: `/mv-detail/${id}`
+        })
       }
     }
   }

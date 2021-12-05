@@ -180,10 +180,24 @@ export default {
     border-radius: 4px;
     margin: 0 4px;
   }
+  .el-pagination /deep/ .el-pager {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px 0px 0px;
+  }
   .el-pagination /deep/ ul > li {
     background-color: #f4f4f4;
     border-radius: 4px;
     margin: 0 4px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    float: left;
+  }
+  .el-pagination /deep/ .el-pager li.el-icon::after {
+    content: '...';
   }
   .el-pagination /deep/ .el-pager li.active {
     background-color: #fa2800;
