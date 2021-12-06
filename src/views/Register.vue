@@ -5,7 +5,7 @@
         <img src="../assets/images/logo-a.png"
              alt="">
       </div>
-      <h2>PIPI MUSIC</h2>
+      <h2>PP MUSIC</h2>
       <el-form ref="form"
                :model="formData"
                label-width="0"
@@ -22,7 +22,7 @@
             <i class="iconfont iconshouji"></i>
             <el-input v-model="formData.phone"
                       placeholder="请输入手机号"></el-input>
-            <span @click="getCaptcha">发送验证码</span>
+            <span @click="getCaptcha" v-show="oversend">发送验证码</span>
           </div>
         </el-form-item>
         <el-form-item prop="password">
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Login',
   data () {
@@ -70,20 +71,21 @@ export default {
         ],
         phone: [
           { required: true, message: '请输入手机号！', trigger: 'blur' },
-          { min: 11, max: 11, message: '格式不对', trigger: 'blur' }
+          { min: 11, max: 11, message: '手机号码格式不对！', trigger: 'blur' }
         ],
         password: [
           { required: true, message: '请输入密码！', trigger: 'blur' },
-          { min: 6, max: 16, message: '格式不对', trigger: 'blur' }
+          { min: 6, max: 16, message: '密码格式不对！', trigger: 'blur' }
         ],
         captcha: [
           { required: true, message: '请输入验证码！', trigger: 'blur' },
-          { min: 4, max: 6, message: '格式不对', trigger: 'blur' }
+          { min: 4, max: 6, message: '验证码格式不对！', trigger: 'blur' }
         ]
       },
       parallax: 'depth',
       verifyData: false,
-      captchaData: false
+      captchaData: false,
+      oversend: true
     }
   },
   methods: {
@@ -108,7 +110,7 @@ export default {
               this.$message.success("注册成功")
               this.$router.replace("/login")
             }
-            return this.$message.error("昵称重复了~")
+            return this.$message.error("昵称重复了")
           })
         } catch (err) {
           console.log(err);
@@ -119,6 +121,10 @@ export default {
     async getCaptcha () {
       let res = await this.$api.getCaptcha(this.formData.phone)
       this.captchaData = res.data.data
+      oversend = false
+      setTimeout(() => {
+        oversend = true
+      }, 60000)
     },
     // 验证验证码
     async verifyCaptcha () {
@@ -137,7 +143,7 @@ export default {
 .register-wrapper {
   width: 100%;
   height: 100vh;
-  background: #5dd5c8 url("../assets/images/newbg1.png") center;
+  background: #fff url("../assets/images/newbg1.png") right no-repeat;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -151,14 +157,15 @@ export default {
     margin: 100px auto;
     border-radius: 10px;
     box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.3);
-    background: url("../assets/images/logbg.jpg") bottom center no-repeat #fff;
+    background: url("../assets/images/logbg.jpg") bottom center #fff;
 
     .logo {
       display: flex;
       justify-content: center;
-      padding: 10px 0 0;
+      padding: 20px 0 0;
 
       img {
+        height: 47px;
         width: 55px;
       }
     }
@@ -166,17 +173,19 @@ export default {
     h2 {
       text-align: center;
       font-weight: 400;
-      padding-bottom: 10px;
+      padding-bottom: 20px;
     }
 
     .item {
+      background-color: #fff;
       border: 1px solid #dcdfe6;
       border-radius: 5px;
-      margin: 0 25px;
+      margin: 0px 25px 5px;
 
       i {
-        position: absolute;
-        left: 25px;
+        position: relative;
+        top: 16px;
+        left: 15px;
         width: 40px;
         text-align: center;
         z-index: 10;
@@ -189,7 +198,7 @@ export default {
         .el-input__inner {
           display: block;
           border: 0;
-          padding: 0 10px;
+          padding: 0px 10px 10px;
         }
       }
     }
@@ -209,11 +218,12 @@ export default {
         cursor: pointer;
       }
       i {
-        left: 0;
+        left: 15px;
       }
     }
     .el-form-item__error {
       margin-left: 40px;
+      color: red;
     }
     .login-botton {
       margin: 30px 25px 0;
@@ -221,8 +231,10 @@ export default {
         display: block;
         width: 100%;
         font-size: 15px;
-        background-color: #5dd5c8;
+        background-color: #f780e3;
         color: #fff;
+        height: 30px;
+        cursor: pointer;
       }
     }
     .register {

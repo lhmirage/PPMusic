@@ -55,7 +55,7 @@
                 {{profile.nickname}}<i class="el-icon-arrow-down el-icon--right"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="profile-el">
+                <!-- <el-dropdown-item command="profile-el">
                   <i class="iconfont iconmine"></i>个人主页
                 </el-dropdown-item>
                 <el-dropdown-item>
@@ -63,7 +63,7 @@
                 </el-dropdown-item>
                 <el-dropdown-item>
                   <i class="iconfont iconshezhi"></i>个人设置
-                </el-dropdown-item>
+                </el-dropdown-item> -->
                 <el-dropdown-item command="sign-out">
                   <i class="iconfont icontuichu"></i>退出登录
                 </el-dropdown-item>

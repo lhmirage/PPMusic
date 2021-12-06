@@ -44,6 +44,9 @@ export default {
   .container {
     display: flex;
     flex-wrap: wrap;
+    .group a :hover {
+      box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.4);
+    }
     .group {
       flex: 0 0 12.5%;
       width: 12.5%;

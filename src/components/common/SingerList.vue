@@ -42,6 +42,10 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  .group :hover {
+    box-shadow: 0px 10px 5px 5px rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+  }
   .group {
     flex: 0 0 10%;
     padding: 10px;

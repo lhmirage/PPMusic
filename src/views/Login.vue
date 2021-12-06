@@ -5,7 +5,7 @@
         <img src="../assets/images/logo-a.png"
              alt="">
       </div>
-      <h2>PIPI MUSIC</h2>
+      <h2>PP MUSIC</h2>
       <el-form ref="form"
                :model="formData"
                label-width="0"
@@ -50,11 +50,11 @@ export default {
       formRules: {
         phone: [
           { require: true, message: '请输入手机号！', trigger: 'blur' },
-          { min: 11, max: 11, message: '手机号格式不对', trigger: 'blur' }
+          { min: 11, max: 11, message: '手机号格式不对!', trigger: 'blur' }
         ],
         password: [
           { require: true, message: '请输入密码！', trigger: 'blur' },
-          { min: 6, max: 16, message: '密码格式不对', trigger: 'blur' }
+          { min: 6, max: 16, message: '密码格式不对!', trigger: 'blur' }
         ]
       },
       parallax: 'depth'
@@ -105,7 +105,7 @@ export default {
 .login-wrap {
   width: 100%;
   height: 100vh;
-  background: #5dd5c8 url("../assets/images/newbg1.png") center;
+  background: #fff url("../assets/images/newbg1.png") right no-repeat;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -119,14 +119,15 @@ export default {
     margin: 100px auto;
     border-radius: 10px;
     box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.3);
-    background: url("../assets/images/logbg.jpg") bottom center no-repeat #fff;
+    background: url("../assets/images/logbg.jpg") bottom center #fff;
 
     .logo {
       display: flex;
       justify-content: center;
-      padding: 50px 0 0;
+      padding: 40px 0 0;
 
       img {
+        height: 47px;
         width: 55px;
       }
     }
@@ -138,13 +139,13 @@ export default {
     }
 
     .item {
+      background-color: #fff;
       border: 1px solid #dcdfe6;
       border-radius: 5px;
-      margin: 0 25px;
-
+      margin: 0px 25px 5px;
       i {
         position: relative;
-        top: 18px;
+        top: 16px;
         left: 15px;
         width: 40px;
         text-align: center;
@@ -164,6 +165,7 @@ export default {
     }
     .el-form-item__error {
       margin-left: 40px;
+      color: red;
     }
     .login-botton {
       margin: 30px 25px 0;
@@ -171,8 +173,10 @@ export default {
         display: block;
         width: 100%;
         font-size: 15px;
-        background-color: #5dd5c8;
+        background-color: #f780e3;
         color: #fff;
+        height: 30px;
+        cursor: pointer;
       }
     }
     .register {

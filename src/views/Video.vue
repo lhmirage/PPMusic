@@ -60,7 +60,7 @@ export default {
       }
     },
     // 下一页
-    prevPage () {
+    nextPage () {
       this.offset += 1
       if (this.currentId) {
         this.getVideoList()

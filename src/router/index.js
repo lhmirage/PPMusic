@@ -13,7 +13,6 @@ const Video = () => import("../views/Video")
 const VideoDetail = () => import("../views/VideoDetail")
 const MV = () => import("../views/MV")
 const MvDetail = () => import("../views/MvDetail")
-const Search = () => import("../views/Search")
 const PlayListDetail = () => import("../views/PlayListDetail")
 
 const SingerDetail = () => import("../views/SingerDetail")
@@ -22,6 +21,13 @@ const SingerAlbum = () => import("../views/singer-detail/SingerAlbum")
 const SingerMv = () => import("../views/singer-detail/SingerMv")
 const SingerDesc = () => import("../views/singer-detail/SingerDesc")
 const SimilarSinger = () => import("../views/singer-detail/SimilarSinger")
+
+const Search = () => import("../views/Search")
+const SearchSongs = () => import("../views/search/SearchSongs")
+const SearchSings = () => import("../views/search/SearchSings")
+const SearchAlbum = () => import("../views/search/SearchAlbum")
+const SearchPlayList = () => import("../views/search/SearchPlayList")
+const SearchMv = () => import("../views/search/SearchMv")
 
 const Profile = () => import("../views/Profile")
 
@@ -92,6 +98,21 @@ const routes = [
   {
     path: "/profile",
     component: Profile
+  },
+  {
+    path: "/search/:keywords",
+    redirect: "/search/:keywords/songs"
+  },
+  {
+    path: "/search/:keywords",
+    component: Search,
+    children: [
+      { path: 'songs', component: SearchSongs },
+      { path: 'sings', component: SearchSings },
+      { path: 'album', component: SearchAlbum },
+      { path: 'play-list', component: SearchPlayList },
+      { path: 'mv', component: SearchMv }
+    ]
   }
 ]
 

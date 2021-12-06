@@ -1,6 +1,6 @@
 <template>
   <div class="go-top">
-    <div class="bg-top"
+    <div class="bg-goTop"
          @click="goTop"
          v-show="isShow"></div>
   </div>
@@ -42,8 +42,8 @@ export default {
   .bg-goTop {
     z-index: 999;
     position: fixed;
-    right: 20px;
-    bottom: 60px;
+    right: 40px;
+    bottom: 100px;
     width: 100px;
     height: 100px;
     background: url("../../assets/images/gotop.png") no-repeat center;

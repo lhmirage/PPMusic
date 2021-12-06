@@ -194,7 +194,7 @@ export default {
     height: 30px;
     text-align: center;
     line-height: 30px;
-    float: left;
+    cursor: pointer;
   }
   .el-pagination /deep/ .el-pager li.el-icon::after {
     content: '...';
