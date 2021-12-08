@@ -32,7 +32,6 @@ export const setPlayPrevSong = (state) => {
 
 // 下一首歌曲
 export const setPlayNextSong = (state) => {
-  console.log(state.playList);
   if (state.playList.indexOf(state.currentSong) === state.playList.length - 1) {
     state.currentSong = state.playList[0]
   } else {
